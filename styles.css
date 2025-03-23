@@ -1,0 +1,118 @@
+body {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+#alice-container {
+  width: 90vh;
+  display: grid;
+  place-items: center;
+  grid-template-areas:
+    "a1 . ."
+    ". a2 ."
+    ". . a3";
+  gap: 2rem;
+}
+
+.circuit-path {
+  stroke: #00ff00;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawPath 3s linear forwards, glowPath 2s linear infinite;
+  filter: drop-shadow(0 0 5px rgba(0, 255, 0, 0.7));
+}
+
+circle {
+  fill: #00ff00;
+  animation: pulse 2s ease-in-out infinite alternate,
+             rgbShift 4s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.8));
+}
+
+.pulse {
+  fill: #00ff00;
+  animation: pulseFade 1.5s ease-in-out infinite,
+             rgbShift 3s linear infinite;
+  filter: drop-shadow(0 0 15px rgba(0, 255, 0, 0.9));
+}
+
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes glowPath {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(0, 255, 0, 0.7));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(0, 255, 0, 0.9));
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseFade {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes rgbShift {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.8));
+    fill: #00ff00;
+  }
+  33% {
+    filter: drop-shadow(0 0 8px rgba(0, 0, 255, 0.8));
+    fill: #0000ff;
+  }
+  66% {
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.8));
+    fill: #ff0000;
+  }
+  100% {
+    filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.8));
+    fill: #00ff00;
+  }
+}
+
+#alice1, #alice2, #alice3 {
+  width: 100%;
+  max-width: 200px;
+  transform-origin: center;
+  animation: hover 3s ease-in-out infinite alternate;
+}
+
+#alice1 { animation-delay: 0s; }
+#alice2 { animation-delay: -1s; }
+#alice3 { animation-delay: -2s; }
+
+@keyframes hover {
+  from {
+    transform: translateY(-10px) rotate(-2deg);
+  }
+  to {
+    transform: translateY(10px) rotate(2deg);
+  }
+}
