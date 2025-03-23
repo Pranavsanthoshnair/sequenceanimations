@@ -8,7 +8,7 @@ body {
   overflow: hidden;
 }
 
-#alice-container {
+#demo-container {
   width: min(95vw, 95vh);
   height: min(95vw, 95vh);
   display: grid;
@@ -27,17 +27,17 @@ body {
   align-items: center;
 }
 
-#alice1 { 
+#demo1 { 
   grid-column: 1;
   grid-row: 1;
 }
 
-#alice2 { 
+#demo2 { 
   grid-column: 2;
   grid-row: 2;
 }
 
-#alice3 { 
+#demo3 { 
   grid-column: 3;
   grid-row: 3;
 }
@@ -131,9 +131,9 @@ circle {
   animation: hover 3s ease-in-out infinite alternate;
 }
 
-#alice1 { animation-delay: 0s; }
-#alice2 { animation-delay: -1s; }
-#alice3 { animation-delay: -2s; }
+#demo1 { animation-delay: 0s; }
+#demo2 { animation-delay: -1s; }
+#demo3 { animation-delay: -2s; }
 
 @keyframes hover {
   from {
@@ -146,7 +146,7 @@ circle {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  #alice-container {
+  #demo-container {
     width: 90vw;
     height: 90vh;
     gap: 0.5rem;
@@ -169,7 +169,7 @@ circle {
 }
 
 @media (max-width: 480px) {
-  #alice-container {
+  #demo-container {
     width: 95vw;
     height: auto;
     grid-template-columns: 1fr;
@@ -177,13 +177,13 @@ circle {
     gap: 1rem;
   }
 
-  #alice1, #alice2, #alice3 {
+  #demo1, #demo2, #demo3 {
     grid-column: 1;
   }
   
-  #alice1 { grid-row: 1; }
-  #alice2 { grid-row: 2; }
-  #alice3 { grid-row: 3; }
+  #demo1 { grid-row: 1; }
+  #demo2 { grid-row: 2; }
+  #demo3 { grid-row: 3; }
   
   svg {
     max-width: 60vw;
